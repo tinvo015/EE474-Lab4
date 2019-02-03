@@ -21,7 +21,8 @@
 #define BLUE      0x04
 #define GREEN     0x08
 const int32_t COLORWHEEL[8] = {RED, RED+GREEN, GREEN, GREEN+BLUE, BLUE, BLUE+RED, RED+GREEN+BLUE, 0};
-#define SIZE 128
+//const int32_t COLORWHEEL[3] = {RED, RED+GREEN, GREEN};
+#define SIZE 1024
 uint32_t SrcBuf[SIZE],DestBuf[SIZE];
 int main(void){  volatile uint32_t delay; uint32_t i,t;
   PLL_Init();  // now running at 80 MHz
@@ -37,16 +38,28 @@ int main(void){  volatile uint32_t delay; uint32_t i,t;
   DMA_Init();  // initialize DMA channel 30 for software transfer
   t = 0;
   while(1){
-    for(i=0;i<SIZE;i++){
-      SrcBuf[i] = i;
-      DestBuf[i] = 0;
-    }
-    while(DMA_Status()); // wait for idle
-    DMA_Transfer(SrcBuf,DestBuf,SIZE);
-    LEDS = COLORWHEEL[t&0x07];
-    t = t+1;
+    for (int j = 0; j < 9; j++) { //1 sec to execute entire outter for loop 
+      for(i=0;i<SIZE;i++){
+        SrcBuf[i] = i;
+        DestBuf[i] = 0;
+      }
+      while(DMA_Status()); // wait for idle
+      DMA_Transfer(SrcBuf,DestBuf,SIZE);
     
-    for(delay = 0; delay < 600000; delay++){
+      for(delay = 0; delay < 600000; delay++){}
     }
+//    LEDS = COLORWHEEL[t&0x07];
+    
+    if (t % 3 == 0) {
+      LEDS = COLORWHEEL[1];
+    } else if (t % 3 == 1) {
+      LEDS = COLORWHEEL[2];
+    } else {
+      LEDS = COLORWHEEL[0];
+    }
+    
+    
+    t = t+1;
+
   }
 }
