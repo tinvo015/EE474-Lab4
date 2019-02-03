@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.32.2.178/W32 for ARM                  02/Feb/2019  19:30:50
+# IAR ELF Linker V8.32.2.178/W32 for ARM                  02/Feb/2019  19:41:21
 # Copyright 2007-2018 IAR Systems AB.
 #
 #    Output file  =  
@@ -8,7 +8,7 @@
 #    Map file     =  
 #        C:\Users\Tin Vo\Documents\EE474-Lab4\TaskA\Debug\List\dma.map
 #    Command line =  
-#        -f C:\Users\TINVO~1\AppData\Local\Temp\EWBDDC.tmp ("C:\Users\Tin
+#        -f C:\Users\TINVO~1\AppData\Local\Temp\EW5E72.tmp ("C:\Users\Tin
 #        Vo\Documents\EE474-Lab4\TaskA\debug\Obj\DMASoftware.o" "C:\Users\Tin
 #        Vo\Documents\EE474-Lab4\TaskA\debug\Obj\DMAtestmain.o" "C:\Users\Tin
 #        Vo\Documents\EE474-Lab4\TaskA\debug\Obj\PLL.o" --no_out_extension -o
@@ -56,42 +56,42 @@ define block HEAP with size = 8K, alignment = 8 { };
   .intvec          ro code          0x0    0x40  vector_table_M.o [4]
                                  - 0x40    0x40
 
-"P1":                                     0x31c
-  .text            ro code         0x40    0xfc  DMAtestmain.o [1]
-  .text            ro code        0x13c    0x6c  PLL.o [1]
-  .text            ro code        0x1a8    0xa8  DMASoftware.o [1]
-  .text            ro code        0x250    0x3a  zero_init3.o [4]
-  .text            ro code        0x28a     0x2  vector_table_M.o [4]
-  .text            ro code        0x28c    0x28  data_init.o [4]
-  .text            ro code        0x2b4    0x22  fpinit_M.o [3]
-  .iar.init_table  const          0x2d8    0x10  - Linker created -
-  .rodata          const          0x2e8    0x20  DMAtestmain.o [1]
-  .text            ro code        0x308    0x1e  cmain.o [4]
-  .text            ro code        0x326     0x4  low_level_init.o [2]
-  .text            ro code        0x32a     0x4  exit.o [2]
-  .text            ro code        0x330     0xa  cexit.o [4]
-  .text            ro code        0x33c    0x14  exit.o [5]
-  .text            ro code        0x350     0xc  cstartup_M.o [4]
-  .rodata          const          0x35c     0x0  zero_init3.o [4]
-                                - 0x35c   0x31c
+"P1":                                     0x318
+  .text            ro code         0x40    0xf8  DMAtestmain.o [1]
+  .text            ro code        0x138    0x6c  PLL.o [1]
+  .text            ro code        0x1a4    0xa8  DMASoftware.o [1]
+  .text            ro code        0x24c    0x3a  zero_init3.o [4]
+  .text            ro code        0x286     0x2  vector_table_M.o [4]
+  .text            ro code        0x288    0x28  data_init.o [4]
+  .text            ro code        0x2b0    0x22  fpinit_M.o [3]
+  .iar.init_table  const          0x2d4    0x10  - Linker created -
+  .rodata          const          0x2e4    0x20  DMAtestmain.o [1]
+  .text            ro code        0x304    0x1e  cmain.o [4]
+  .text            ro code        0x322     0x4  low_level_init.o [2]
+  .text            ro code        0x326     0x4  exit.o [2]
+  .text            ro code        0x32c     0xa  cexit.o [4]
+  .text            ro code        0x338    0x14  exit.o [5]
+  .text            ro code        0x34c     0xc  cstartup_M.o [4]
+  .rodata          const          0x358     0x0  zero_init3.o [4]
+                                - 0x358   0x318
 
-"P2", part 1 of 2:                       0x2400
-  .bss             zero     0x2000'0000  0x1000  DMAtestmain.o [1]
-  .bss             zero     0x2000'1000  0x1000  DMAtestmain.o [1]
-  .bss             zero     0x2000'2000   0x400  DMASoftware.o [1]
-                          - 0x2000'2400  0x2400
+"P2", part 1 of 2:                        0x800
+  .bss             zero     0x2000'0000   0x400  DMASoftware.o [1]
+  .bss             zero     0x2000'0400   0x200  DMAtestmain.o [1]
+  .bss             zero     0x2000'0600   0x200  DMAtestmain.o [1]
+                          - 0x2000'0800   0x800
 
 "P2", part 2 of 2:                       0x1000
-  CSTACK                    0x2000'2400  0x1000  <Block>
-    CSTACK         uninit   0x2000'2400  0x1000  <Block tail>
-                          - 0x2000'3400  0x1000
+  CSTACK                    0x2000'0800  0x1000  <Block>
+    CSTACK         uninit   0x2000'0800  0x1000  <Block tail>
+                          - 0x2000'1800  0x1000
 
 Unused ranges:
 
          From           To      Size
          ----           --      ----
-        0x35c     0x3'ffff  0x3'fca4
-  0x2000'3400  0x2000'7fff    0x4c00
+        0x358     0x3'ffff  0x3'fca8
+  0x2000'1800  0x2000'7fff    0x6800
 
 
 *******************************************************************************
@@ -101,8 +101,8 @@ Unused ranges:
           Address      Size
           -------      ----
 Zero (__iar_zero_init3)
-    1 destination range, total size 0x2400:
-          0x2000'0000  0x2400
+    1 destination range, total size 0x800:
+          0x2000'0000  0x800
 
 
 
@@ -118,10 +118,10 @@ command line/config:
 
 C:\Users\Tin Vo\Documents\EE474-Lab4\TaskA\debug\Obj: [1]
     DMASoftware.o         168             1 024
-    DMAtestmain.o         252       32    8 192
+    DMAtestmain.o         248       32    1 024
     PLL.o                 108
     -------------------------------------------
-    Total:                528       32    9 216
+    Total:                524       32    2 048
 
 dl7M_tln.a: [2]
     exit.o                  4
@@ -152,43 +152,43 @@ shb_l.a: [5]
     Gaps                    4        2
     Linker created                  16    4 096
 -----------------------------------------------
-    Grand Total:          810       50   13 312
+    Grand Total:          806       50    6 144
 
 
 *******************************************************************************
 *** ENTRY LIST
 ***
 
-Entry                       Address    Size  Type      Object
------                       -------    ----  ----      ------
-.iar.init_table$$Base         0x2d8           --   Gb  - Linker created -
-.iar.init_table$$Limit        0x2e8           --   Gb  - Linker created -
-?main                         0x309          Code  Gb  cmain.o [4]
-COLORWHEEL                    0x2e8    0x20  Data  Gb  DMAtestmain.o [1]
-CSTACK$$Base            0x2000'2400           --   Gb  - Linker created -
-CSTACK$$Limit           0x2000'3400           --   Gb  - Linker created -
-DMA_Init                      0x1a9    0x44  Code  Gb  DMASoftware.o [1]
-DMA_Status                    0x21b     0xa  Code  Gb  DMASoftware.o [1]
-DMA_Transfer                  0x1ed    0x2e  Code  Gb  DMASoftware.o [1]
-DestBuf                 0x2000'1000  0x1000  Data  Gb  DMAtestmain.o [1]
-PLL_Init                      0x13d    0x6c  Code  Gb  PLL.o [1]
-Region$$Table$$Base           0x2d8           --   Gb  - Linker created -
-Region$$Table$$Limit          0x2e8           --   Gb  - Linker created -
-SrcBuf                  0x2000'0000  0x1000  Data  Gb  DMAtestmain.o [1]
-__cmain                       0x309          Code  Gb  cmain.o [4]
-__exit                        0x33d    0x14  Code  Gb  exit.o [5]
-__iar_data_init3              0x28d    0x28  Code  Gb  data_init.o [4]
-__iar_init_vfp                0x2b5          Code  Gb  fpinit_M.o [3]
-__iar_program_start           0x351          Code  Gb  cstartup_M.o [4]
-__iar_zero_init3              0x251    0x3a  Code  Gb  zero_init3.o [4]
-__low_level_init              0x327     0x4  Code  Gb  low_level_init.o [2]
-__vector_table                  0x0          Data  Gb  vector_table_M.o [4]
-_call_main                    0x315          Code  Gb  cmain.o [4]
-_exit                         0x331          Code  Gb  cexit.o [4]
-_main                         0x323          Code  Gb  cmain.o [4]
-exit                          0x32b     0x4  Code  Gb  exit.o [2]
-main                           0x41    0xfc  Code  Gb  DMAtestmain.o [1]
-ucControlTable          0x2000'2000   0x400  Data  Gb  DMASoftware.o [1]
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base         0x2d4          --   Gb  - Linker created -
+.iar.init_table$$Limit        0x2e4          --   Gb  - Linker created -
+?main                         0x305         Code  Gb  cmain.o [4]
+COLORWHEEL                    0x2e4   0x20  Data  Gb  DMAtestmain.o [1]
+CSTACK$$Base            0x2000'0800          --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'1800          --   Gb  - Linker created -
+DMA_Init                      0x1a5   0x44  Code  Gb  DMASoftware.o [1]
+DMA_Status                    0x217    0xa  Code  Gb  DMASoftware.o [1]
+DMA_Transfer                  0x1e9   0x2e  Code  Gb  DMASoftware.o [1]
+DestBuf                 0x2000'0600  0x200  Data  Gb  DMAtestmain.o [1]
+PLL_Init                      0x139   0x6c  Code  Gb  PLL.o [1]
+Region$$Table$$Base           0x2d4          --   Gb  - Linker created -
+Region$$Table$$Limit          0x2e4          --   Gb  - Linker created -
+SrcBuf                  0x2000'0400  0x200  Data  Gb  DMAtestmain.o [1]
+__cmain                       0x305         Code  Gb  cmain.o [4]
+__exit                        0x339   0x14  Code  Gb  exit.o [5]
+__iar_data_init3              0x289   0x28  Code  Gb  data_init.o [4]
+__iar_init_vfp                0x2b1         Code  Gb  fpinit_M.o [3]
+__iar_program_start           0x34d         Code  Gb  cstartup_M.o [4]
+__iar_zero_init3              0x24d   0x3a  Code  Gb  zero_init3.o [4]
+__low_level_init              0x323    0x4  Code  Gb  low_level_init.o [2]
+__vector_table                  0x0         Data  Gb  vector_table_M.o [4]
+_call_main                    0x311         Code  Gb  cmain.o [4]
+_exit                         0x32d         Code  Gb  cexit.o [4]
+_main                         0x31f         Code  Gb  cmain.o [4]
+exit                          0x327    0x4  Code  Gb  exit.o [2]
+main                           0x41   0xf8  Code  Gb  DMAtestmain.o [1]
+ucControlTable          0x2000'0000  0x400  Data  Gb  DMASoftware.o [1]
 
 
 [1] = C:\Users\Tin Vo\Documents\EE474-Lab4\TaskA\debug\Obj
@@ -197,9 +197,9 @@ ucControlTable          0x2000'2000   0x400  Data  Gb  DMASoftware.o [1]
 [4] = rt7M_tl.a
 [5] = shb_l.a
 
-     810 bytes of readonly  code memory
-      50 bytes of readonly  data memory
-  13 312 bytes of readwrite data memory
+    806 bytes of readonly  code memory
+     50 bytes of readonly  data memory
+  6 144 bytes of readwrite data memory
 
 Errors: none
 Warnings: none

@@ -22,7 +22,7 @@
 #define GREEN     0x08
 const int32_t COLORWHEEL[8] = {RED, RED+GREEN, GREEN, GREEN+BLUE, BLUE, BLUE+RED, RED+GREEN+BLUE, 0};
 //const int32_t COLORWHEEL[3] = {RED, RED+GREEN, GREEN};
-#define SIZE 1024
+#define SIZE 128
 uint32_t SrcBuf[SIZE],DestBuf[SIZE];
 int main(void){  volatile uint32_t delay; uint32_t i,t;
   PLL_Init();  // now running at 80 MHz
