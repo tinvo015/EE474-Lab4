@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "C:\\TI-CMSIS-Devices-8636\\TI\\LM4F\\Include",
+                "C:\\Users\taojin\\Desktop\\EE 474\\Lab\\headers",
+                "C:\\ti\\TivaWare_C_Series-2.1.4.178"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "intelliSenseMode": "msvc-x64"
+        }
+    ],
+    "version": 4
+}

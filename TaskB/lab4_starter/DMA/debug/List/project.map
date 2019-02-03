@@ -1,0 +1,252 @@
+###############################################################################
+#
+# IAR ELF Linker V8.22.2.15995/W32 for ARM                12/Jul/2018  13:32:14
+# Copyright 2007-2018 IAR Systems AB.
+#
+#    Output file  =  
+#        C:\Users\sl\Dropbox\EE\474\project\DMA\Debug\Exe\project.out
+#    Map file     =  
+#        C:\Users\sl\Dropbox\EE\474\project\DMA\Debug\List\project.map
+#    Command line =  
+#        -f C:\Users\sl\AppData\Local\Temp\EWE59F.tmp
+#        (C:\Users\sl\Dropbox\EE\474\project\DMA\Debug\Obj\main1.o -o
+#        C:\Users\sl\Dropbox\EE\474\project\DMA\Debug\Exe\project.out
+#        --redirect _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb
+#        --map C:\Users\sl\Dropbox\EE\474\project\DMA\Debug\List\project.map
+#        --config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        8.0\arm\config\linker\TexasInstruments\TM4C123GH6.icf" --semihosting
+#        --entry __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** MESSAGES
+***
+
+Error[Li005]: no definition for "SysCtlDelay" [referenced from
+          C:\Users\sl\Dropbox\EE\474\project\DMA\Debug\Obj\main1.o]
+
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because some modules are built with
+size limitations (and not runtime checking), and --advanced_heap
+was not specified.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x0003ffff] { ro };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x20000000 to 0x20007fff] {
+          rw, block CSTACK, block HEAP };
+
+  Section          Kind        Address    Size  Object
+  -------          ----        -------    ----  ------
+"A0":                                     0x40
+  .intvec          ro code  0x00000000    0x40  vector_table_M.o [5]
+                          - 0x00000040    0x40
+
+"P1":                                    0xf38
+  .text            ro code  0x00000040   0xb34  main1.o [1]
+  .rodata          const    0x00000b74   0x1b0  main1.o [1]
+  .rodata          const    0x00000d24    0x6c  main1.o [1]
+  .rodata          const    0x00000d90    0x60  main1.o [1]
+  .rodata          const    0x00000df0    0x40  main1.o [1]
+  .text            ro code  0x00000e30    0x40  zero_init3.o [5]
+  .rodata          const    0x00000e70    0x30  main1.o [1]
+  .text            ro code  0x00000ea0    0x28  data_init.o [5]
+  .text            ro code  0x00000ec8    0x22  fpinit_M.o [4]
+  .iar.init_table  const    0x00000eec    0x10  - Linker created -
+  .text            ro code  0x00000efc     0x2  vector_table_M.o [5]
+  .text            ro code  0x00000f00    0x1e  cmain.o [5]
+  .text            ro code  0x00000f1e     0x4  low_level_init.o [3]
+  .text            ro code  0x00000f22     0x4  exit.o [3]
+  .text            ro code  0x00000f28     0xa  cexit.o [5]
+  .text            ro code  0x00000f34    0x14  exit.o [6]
+  .rodata          const    0x00000f48    0x14  main1.o [1]
+  .text            ro code  0x00000f5c     0xc  cstartup_M.o [5]
+  .rodata          const    0x00000f68     0x8  main1.o [1]
+  .rodata          const    0x00000f70     0x4  main1.o [1]
+  .rodata          const    0x00000f74     0x4  main1.o [1]
+  .rodata          const    0x00000f78     0x0  zero_init3.o [5]
+                          - 0x00000f78   0xf38
+
+"P2", part 1 of 2:                       0x674
+  .bss             zero     0x20000000   0x400  main1.o [1]
+  vtable           zero     0x20000400   0x26c  main1.o [1]
+  .bss             zero     0x2000066c     0x4  main1.o [1]
+  .bss             zero     0x20000670     0x2  main1.o [1]
+                          - 0x20000672   0x672
+
+"P2", part 2 of 2:                      0x1000
+  CSTACK                    0x20000678  0x1000  <Block>
+    CSTACK         uninit   0x20000678  0x1000  <Block tail>
+                          - 0x20001678  0x1000
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x672:
+          0x20000000  0x672
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  ro data  rw data
+    ------            -------  -------  -------
+C:\Users\sl\Dropbox\EE\474\project\DMA\Debug\Obj: [1]
+    main1.o             2 868      784    1 650
+    -------------------------------------------
+    Total:              2 868      784    1 650
+
+command line: [2]
+    -------------------------------------------
+    Total:
+
+dl7M_tlf.a: [3]
+    exit.o                  4
+    low_level_init.o        4
+    -------------------------------------------
+    Total:                  8
+
+m7M_tls.a: [4]
+    fpinit_M.o             34
+    -------------------------------------------
+    Total:                 34
+
+rt7M_tl.a: [5]
+    cexit.o                10
+    cmain.o                30
+    cstartup_M.o           12
+    data_init.o            40
+    vector_table_M.o       66
+    zero_init3.o           64
+    -------------------------------------------
+    Total:                222
+
+shb_l.a: [6]
+    exit.o                 20
+    -------------------------------------------
+    Total:                 20
+
+    Gaps                    6        2
+    Linker created                  16    4 096
+-----------------------------------------------
+    Grand Total:        3 158      802    5 746
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x00000eec          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x00000efc          --   Gb  - Linker created -
+?main                   0x00000f01         Code  Gb  cmain.o [5]
+CSTACK$$Base            0x20000678          --   Gb  - Linker created -
+CSTACK$$Limit           0x20001678          --   Gb  - Linker created -
+DMAcontroltable         0x20000000  0x400  Data  Gb  main1.o [1]
+GPIODirModeSet          0x00000761   0x4e  Code  Gb  main1.o [1]
+GPIOPadConfigSet        0x000007af  0x214  Code  Gb  main1.o [1]
+GPIOPinTypeGPIOOutput   0x000009cf   0x22  Code  Gb  main1.o [1]
+GPIOPinWrite            0x000009c3    0xc  Code  Gb  main1.o [1]
+InitGPIO                0x00000a7d   0x2e  Code  Gb  main1.o [1]
+InitTimer               0x00000ab1   0x50  Code  Gb  main1.o [1]
+InituDMA                0x00000a29   0x54  Code  Gb  main1.o [1]
+IntEnable               0x00000085   0x78  Code  Gb  main1.o [1]
+IntRegister             0x00000041   0x44  Code  Gb  main1.o [1]
+OutputState             0x20000670    0x2  Data  Lc  main1.o [1]
+Region$$Table$$Base     0x00000eec          --   Gb  - Linker created -
+Region$$Table$$Limit    0x00000efc          --   Gb  - Linker created -
+SysCtlClockFreqSet      0x00000203  0x268  Code  Gb  main1.o [1]
+SysCtlPeripheralDisable
+                        0x000001e5   0x1e  Code  Gb  main1.o [1]
+SysCtlPeripheralEnable  0x000001c7   0x1e  Code  Gb  main1.o [1]
+SysCtlPeripheralReset   0x00000177   0x50  Code  Gb  main1.o [1]
+TimerConfigure          0x000004f9   0x74  Code  Gb  main1.o [1]
+TimerDMAEventSet        0x000005c9    0x6  Code  Gb  main1.o [1]
+TimerEnable             0x000004e5   0x14  Code  Gb  main1.o [1]
+TimerInt                0x000009f9   0x22  Code  Gb  main1.o [1]
+TimerIntClear           0x000005c3    0x6  Code  Gb  main1.o [1]
+TimerIntEnable          0x000005b5    0xe  Code  Gb  main1.o [1]
+TimerIntRegister        0x0000059b   0x1a  Code  Gb  main1.o [1]
+TimerLoadSet            0x00000585   0x16  Code  Gb  main1.o [1]
+_SysCtlFrequencyGet     0x00000123   0x54  Code  Lc  main1.o [1]
+_SysCtlMemTimingGet     0x000000fd   0x26  Code  Lc  main1.o [1]
+_TimerIntNumberGet      0x00000491   0x52  Code  Lc  main1.o [1]
+__cmain                 0x00000f01         Code  Gb  cmain.o [5]
+__exit                  0x00000f35   0x14  Code  Gb  exit.o [6]
+__iar_data_init3        0x00000ea1   0x28  Code  Gb  data_init.o [5]
+__iar_init_vfp          0x00000ec9         Code  Gb  fpinit_M.o [4]
+__iar_program_start     0x00000f5d         Code  Gb  cstartup_M.o [5]
+__iar_systems$$module {Abs}
+                        0x00000001         Data  Gb  command line/config [2]
+__iar_zero_init3        0x00000e31   0x40  Code  Gb  zero_init3.o [5]
+__low_level_init        0x00000f1f    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000         Data  Gb  vector_table_M.o [5]
+_call_main              0x00000f0d         Code  Gb  cmain.o [5]
+_exit                   0x00000f29         Code  Gb  cexit.o [5]
+_main                   0x00000f1b         Code  Gb  cmain.o [5]
+exit                    0x00000f23    0x4  Code  Gb  exit.o [3]
+g_pfnRAMVectors         0x20000400  0x26c  Data  Lc  main1.o [1]
+g_pppui32XTALtoVCO      0x00000b74  0x1b0  Data  Lc  main1.o [1]
+g_ppui32TimerIntMap     0x00000d90   0x60  Data  Lc  main1.o [1]
+g_ppui32TimerIntMapSnowflake
+                        0x00000df0   0x40  Data  Lc  main1.o [1]
+g_pui32EnRegs           0x00000f48   0x14  Data  Lc  main1.o [1]
+g_pui32VCOFrequencies   0x00000f68    0x8  Data  Lc  main1.o [1]
+g_pui32Xtals            0x00000d24   0x6c  Data  Lc  main1.o [1]
+g_sXTALtoMEMTIM         0x00000e70   0x30  Data  Lc  main1.o [1]
+g_ui32SysClock          0x2000066c    0x4  Data  Gb  main1.o [1]
+g_ui8TimerIntMapRows    0x00000f70    0x4  Data  Lc  main1.o [1]
+g_ui8TimerIntMapRowsSnowflake
+                        0x00000f74    0x4  Data  Lc  main1.o [1]
+main                    0x00000b05   0x30  Code  Gb  main1.o [1]
+uDMAChannelAssign       0x0000070f   0x2c  Code  Gb  main1.o [1]
+uDMAChannelAttributeDisable
+                        0x0000061d   0x40  Code  Gb  main1.o [1]
+uDMAChannelControlSet   0x00000661   0x24  Code  Gb  main1.o [1]
+uDMAChannelEnable       0x000005e5   0x12  Code  Gb  main1.o [1]
+uDMAChannelTransferSet  0x0000068d   0x82  Code  Gb  main1.o [1]
+uDMAControlBaseSet      0x000005fd    0x8  Code  Gb  main1.o [1]
+uDMAEnable              0x000005cf    0xa  Code  Gb  main1.o [1]
+
+
+[1] = C:\Users\sl\Dropbox\EE\474\project\DMA\Debug\Obj
+[2] = command line
+[3] = dl7M_tlf.a
+[4] = m7M_tls.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
+
+  3 158 bytes of readonly  code memory
+    802 bytes of readonly  data memory
+  5 746 bytes of readwrite data memory
+
+Errors: 1
+Warnings: none
