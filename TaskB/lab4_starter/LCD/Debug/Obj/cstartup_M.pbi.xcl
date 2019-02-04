@@ -1,9 +1,9 @@
-"C:\Users\taojin\Desktop\EE 474\Lab\Lab3\Section A\cstartup_M.c"
+"C:\Users\taojin\Desktop\EE 474\Lab\EE474-Lab4\TaskB\lab4_starter\LCD\cstartup_M.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -I
-C:\Users\taojin\Desktop\EE 474\Lab\Lab3\Section A
+C:\Users\taojin\Desktop\EE 474\Lab\EE474-Lab4\TaskB\lab4_starter\LCD
 -I
 C:\TI-CMSIS-Devices-8636\TI\LM4F\Include
 -I

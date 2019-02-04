@@ -6,6 +6,7 @@
 #include <tm4c123gh6pm.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include <math.h>
 #include "C:\Users\taojin\Desktop\EE 474\Lab\EE474-Lab4\TaskB\lab4_starter\LCD\myHeader.h"
 #include "C:\Users\taojin\Desktop\EE 474\Lab\EE474-Lab4\TaskB\lab4_starter\LCD\SSD2119.h"
 
@@ -18,6 +19,7 @@ void SYS_Init(void);
 void timer(void);
 unsigned int tempTable(double temperature);
 void Timer_Handler_1A(void);
+void LCD_DrawCube(unsigned short startX, unsigned short startY, unsigned short sildeLen, unsigned short Color);
 
 volatile bool blink = 0;
 
@@ -44,7 +46,7 @@ void SYS_Init(void)
 /** Max countdown value can be adjusted
  *	based on the current clock frequency
  */
-void Timer_Init_0A()
+void Timer_Init_0A(void)
 {
   RCGCTIMER |= 0x01;               // enable clock for Timer 0
   GPTMCFG_0A = 0x00000000;         // select 32-bit timer config
@@ -135,7 +137,9 @@ void ADC1_Handler(void)
 		GPIODATA_PORTF = 0;
 	else
 		GPIODATA_PORTF = color;
-	
+
+	LCD_DrawCube(200, 150, 60, 0x1234);
+
 	GPTMCTL_0A &= ~0x01;						// disable the Timer_0A
 	ADCISC_1 |= 0x8;								// clear the ADC flag
 	GPTMICR_0A = 0x01;  						// clear timer flag
@@ -172,15 +176,48 @@ unsigned int tempTable(double temp)
 
 void Timer_Handler_1A(void)
 {
+	// // Clear the contents of the display buffer.
+	// int count;
+	// LCD_WriteCommand(0x22);
+	// for (count = 0; count < (320 * 240); count++)
+	// {
+	// 	LCD_WriteData(0x0000);
+	// }
+
 	int x = (int)Touch_ReadX();
 	int y = (int)Touch_ReadY();
 
-	LCD_SetCursor(160, 150);
-	LCD_PrintInteger(x);
-	LCD_SetCursor(160, 170);
-	LCD_PrintInteger(y);
+	LCD_SetCursor(60, 230);
+	printf("X Coor is: %d and Y Coor is: %d", x, y);
 
 	GPTMCTL_1A &= ~(0x01);			// disable the Timer_1A
 	GPTMICR_1A = 0x01; 					// clear flag
 	GPTMCTL_1A |= 0x01;					// enable the Timer_1A
+}
+
+void LCD_DrawCube(unsigned short startX, unsigned short startY, unsigned short sideLen, unsigned short Color)
+{
+	LCD_DrawRect(startX, startY, sideLen, sideLen, Color);
+
+	LCD_DrawLine(startX, startY, (unsigned short)(startX + (sideLen / sqrt(2))), (unsigned short)(startY - (sideLen / sqrt(2))), Color);
+
+	LCD_DrawLine((unsigned short)(startX + (sideLen / sqrt(2))), (unsigned short)(startY - (sideLen / sqrt(2))),
+							 (unsigned short)((startX + (sideLen / sqrt(2))) + sideLen), (unsigned short)(startY - (sideLen / sqrt(2))), Color);
+
+	LCD_DrawLine((unsigned short)((startX + (sideLen / sqrt(2))) + sideLen), (unsigned short)(startY - (sideLen / sqrt(2))),
+							 (unsigned short)(startX + sideLen), startY, Color);
+
+	LCD_DrawLine((unsigned short)((startX + (sideLen / sqrt(2))) + sideLen), (unsigned short)(startY - (sideLen / sqrt(2))),
+							 (unsigned short)((startX + (sideLen / sqrt(2))) + sideLen), (unsigned short)(startY - (sideLen / sqrt(2)) + sideLen), Color);
+
+	LCD_DrawLine((unsigned short)((startX + (sideLen / sqrt(2))) + sideLen), (unsigned short)(startY - (sideLen / sqrt(2)) + sideLen),
+							 (unsigned short)(startX + sideLen), (unsigned short)(startY + sideLen), Color);
+
+	// int i;
+	// for (i = y0 - x; i < y0 + x; i++)
+	// {
+	// 	LCD_DrawPixel(x0 - y, i, color);
+	// }
+
+	// LCD_DrawFilledRect(startX, startY, sideLen, sideLen, Color);
 }

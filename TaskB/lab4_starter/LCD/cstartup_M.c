@@ -26,10 +26,7 @@ extern void SysTick_Handler( void );
 
 // lab - 2/3 ISR
 extern void ADC1_Handler( void );
-// extern void Timer_Handler_0A( void );
 extern void Timer_Handler_1A( void );
-// extern void Timer_Handler_2A( void );
-// extern void GPIO_Handler_PORTF( void );
 
 typedef void( *intfunc )( void );
 typedef union { intfunc __fun; void * __ptr; } intvec_elem;
@@ -116,19 +113,6 @@ const intvec_elem __vector_table[] =
         0,
         0,
         ADC1_Handler,
-        // 0,
-        // Timer_Handler_0A,
-        // 0,
-        // Timer_Handler_1A,
-        // 0,
-        // Timer_Handler_2A,
-        // 0,
-        // 0,
-        // 0,
-        // 0,
-        // 0,
-        // 0,
-        // GPIO_Handler_PORTF,
 
 };
 
@@ -153,14 +137,9 @@ __weak void SysTick_Handler( void ) { while (1) {} }
 
 #pragma call_graph_root = "interrupt"
 __weak void ADC1_Handler( void ) { while (1) {} }
-// #pragma call_graph_root = "interrupt"
-// __weak void Timer_Handler_0A( void ) { while (1) {} }
 #pragma call_graph_root = "interrupt"
 __weak void Timer_Handler_1A( void ) { while (1) {} }
-// #pragma call_graph_root = "interrupt"
-// __weak void Timer_Handler_2A( void ) { while (1) {} }
-// #pragma call_graph_root = "interrupt"
-// __weak void GPIO_Handler_PORTF( void ) { while (1) {} }
+
 
 void __cmain( void );
 __weak void __iar_init_core( void );
